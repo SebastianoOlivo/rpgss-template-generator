@@ -1,0 +1,1 @@
+# rpgss-template-generator

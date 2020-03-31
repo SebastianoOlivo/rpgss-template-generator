@@ -6,8 +6,8 @@
       "yarn": "1.15.2"
     },
     "scripts": {
-      "build": "cd web-app  && npm run build && cd ..",
-      "deploy": "cp -a web-app/build/. public/",
+      "build": "cd web-app && npm install && npm run build && cd ..",
+      "deploy": "cp -a ./web-app/dist/web-app/. public/",
       "heroku-postbuild": "npm run build && npm run deploy "
     }
   }

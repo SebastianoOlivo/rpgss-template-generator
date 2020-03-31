@@ -1,0 +1,13 @@
+{
+    "name": "rpgss-template-generator",
+    "license": "MIT",
+    "engines": {
+      "node": "10.15.3",
+      "yarn": "1.15.2"
+    },
+    "scripts": {
+      "build": "cd web-app  && npm run build && cd ..",
+      "deploy": "cp -a web-app/build/. public/",
+      "heroku-postbuild": "npm run build && npm run deploy "
+    }
+  }

@@ -68,3 +68,8 @@
         </section>
     </article>
 </div>
+
+<div class="copy-container" [ngClass]="{'copied': isCopied}">
+    <textarea name="" id="" cols="30" rows="10" [value]="htmlCopy"></textarea>
+    <button (click)="copyToClipboard()" class="btn">copier le code</button>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { EditionDataService } from 'src/app/shared/edition-data.service';
 import { PresentationFormTypes } from 'src/app/types/presentation-form.types';
 
@@ -6,16 +6,42 @@ import { PresentationFormTypes } from 'src/app/types/presentation-form.types';
 @Component({
     selector: 'previewer',
     templateUrl: 'previewer.component.html',
-    styleUrls: ['previewer.component.scss']
+    styleUrls: ['previewer.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 
 
 export class Previewer {
     public presentationData: PresentationFormTypes = new PresentationFormTypes();
-    constructor(private editionDataService: EditionDataService, private renderer: Renderer2) {
+    public htmlCopy:string;
+    public isCopied:boolean = false;
+    constructor(private editionDataService: EditionDataService, private el: ElementRef) {
         this.editionDataService.userData.subscribe(formData => {
-            this.presentationData = formData
+            this.presentationData = formData;
+            this.cloningHtmlcode();
+            
         })
+    }
+
+    cloningHtmlcode():void{
+        setTimeout(() => {
+            this.htmlCopy = this.el.nativeElement.querySelector('.card').outerHTML;
+            console.log('code', this.htmlCopy)
+        }, .200);
+        
+    }   
+
+    copyToClipboard():void{
+        document.addEventListener('copy', (e: ClipboardEvent) => {
+            e.clipboardData.setData('text/plain', (this.htmlCopy));
+            e.preventDefault();
+            document.removeEventListener('copy', null);
+          });
+          document.execCommand('copy');
+          this.isCopied = true;
+          setTimeout(() => {
+            this.isCopied = false;
+          }, 1200);
     }
 
     toggleClass(event: any, toggleClass: string): void {

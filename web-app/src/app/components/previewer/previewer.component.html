@@ -1,0 +1,70 @@
+<div class="card card--presentation" *ngIf="presentationData">
+    <div class="card-banner" [ngStyle]="{'background-image': 'url('+presentationData.coverImage+')'}">
+        <h2>
+            {{presentationData.character.name || ""}}
+            <span> {{presentationData.character.cloth}}</span>
+        </h2>
+    </div>
+    <article class="card-content">
+        <aside class="character-info character-info--dark">
+            <ul class="character-list character-list--dark">
+                <li class="character-list__item character-list__item--image">
+                    <img src="{{presentationData.character.avatar}}" alt="">
+                </li>
+                <li class="character-list__item character-list__item--name">
+                    {{presentationData.character.name || ""}}
+                </li>
+                <li class="character-list__item"><strong>Âge : </strong> {{presentationData.character.age }}</li>
+                <li class="character-list__item"><strong>Faction : </strong>{{presentationData.character.faction }}</li>
+                <li class="character-list__item"><strong>Maître : </strong>{{presentationData.character.mentor }}</li>
+                <li class="character-list__item"><strong>Origine : </strong>{{presentationData.character.origin }}</li> 
+            </ul>
+        </aside>
+        <section (click)="toggleClass($event, 'content-section--folded')" class="content-section presentation content-section--fold">
+            <h3>Histoire</h3>
+            <div [innerHTML]="presentationData.history | formatPleinText" class="folding-container">
+            </div>
+        </section>
+        <section (click)="toggleClass($event, 'content-section--folded')" class="content-section content-section--fold">
+            <h3>Physique</h3>
+            <div [innerHTML]="presentationData.physiology | formatPleinText" class="folding-container">
+            </div>
+        </section>
+        <section (click)="toggleClass($event, 'content-section--folded')" class="content-section content-section--fold">
+            <h3>Psychologie</h3>
+            <div [innerHTML]="presentationData.psychology | formatPleinText" class="folding-container">
+            </div>           
+            </section>
+        <section class="content-section">
+            <h3>Le joueur</h3>
+            <div class="player-info">
+                <ul class="player-list player-list--dark">
+                    <li class="player-list__item">
+                        <strong>Prénom</strong>
+                        {{presentationData.player.name }}
+                    </li>
+                    <li class="player-list__item">
+                        <strong>age</strong>
+                        {{presentationData.player.age }}
+                    </li>
+                    <li class="player-list__item">
+                        <strong>Niveau rp</strong>
+                        {{presentationData.player.level }}
+                    </li>
+                    <li class="player-list__item">
+                        <strong>Double compte</strong>
+                        {{presentationData.player.secondAccount }}
+                    </li>
+                    <li class="player-list__item">
+                        <strong>Où avez-vous trouvé le forum ?</strong>
+                        {{presentationData.player.findIt }}
+                    </li>
+                    <li class="player-list__item">
+                        <strong>Autre ?</strong>
+                        {{presentationData.player.aWord }}
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </article>
+</div>

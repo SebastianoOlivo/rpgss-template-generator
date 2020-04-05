@@ -1,0 +1,72 @@
+<form class="edition-form" [formGroup]="presentationForm">
+  <label>
+    <span>Image principale</span>
+    <input type="text" name="coverImage" formControlName="coverImage" placeholder="url de l'image">
+  </label>
+  <ng-container  formGroupName="character">
+    <label>
+      <span>avatar (format carré de préférence)</span>
+      <input type="text" name="avatar" formControlName="avatar" placeholder="url de l'image">
+    </label>
+    <label>
+      <span>Nom du chevalier</span>
+      <input type="text" name="name" formControlName="name" placeholder="nom du chevalier">
+    </label>
+    <label>
+      <span>Nom de l'armure</span>
+      <input type="text" name="cloth" formControlName="cloth" placeholder="nom de l'armure">
+    </label>
+    <label>
+      <span>Age du chevalier</span>
+      <input type="number" name="age" formControlName="age" placeholder="age du chevalier">
+    </label>
+    <label>
+      <span>Camp du chevalier</span>
+      <input type="text" name="faction" formControlName="faction" placeholder="faction du chevalier">
+    </label>
+    <label>
+      <span>Nom de votre maitre</span>
+      <input type="text" name="mentor" formControlName="mentor" placeholder="Nom de votre maitre">
+    </label>
+    <label>
+      <span>Origine du chevalier</span>
+      <input type="text" name="origin" formControlName="origin" placeholder="Origine du chevalier">
+    </label>
+  </ng-container>
+  <label class="full">
+    <span>Votre hsitoire</span>
+    <textarea name="history" formControlName="history" placeholder="Votre histoires" id=""></textarea>
+  </label>
+  <label class="full">
+    <span>Phisique du personnage</span>
+    <textarea name="phisiology" formControlName="physiology" placeholder="Phisique du personnage" id=""></textarea>
+  </label>
+  <label class="full">
+    <span>Psychologie du personnage</span>
+    <textarea name="psychology" formControlName="psychology" placeholder="Psychologie du personnage" id=""></textarea>
+  </label>
+  <ng-container formGroupName="player">
+    <label>
+      <span>Nom de joueur</span>
+      <input type="text" name="name" formControlName="name" placeholder="Votre nom">
+    </label>
+    <label>
+      <span>Age du joueur</span>
+      <input type="number" name="age" formControlName="age" placeholder="Votre age">
+    </label><label>
+      <span>Niveau RP</span>
+      <input type="text" name="level" formControlName="level" placeholder="Votre niveau rp">
+    </label>
+    <label>
+      <span>Double compte</span>
+      <input type="string" name="secondAccount" formControlName="secondAccount" placeholder="Est-ce un double compte ?">
+    </label><label>
+      <span>Ou avez vous trouvez le forum ?</span>
+      <input type="text" name="findIt" formControlName="findIt" placeholder="">
+    </label>
+    <label>
+      <span>Autre</span>
+      <input type="number" name="aWord" formControlName="aWord" placeholder="">
+    </label>
+  </ng-container>
+</form>

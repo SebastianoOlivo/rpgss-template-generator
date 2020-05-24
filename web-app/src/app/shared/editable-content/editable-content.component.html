@@ -1,0 +1,12 @@
+<div class="edit-content" [class]="{'editing': editing}">
+    <div class="content">
+      <button  class="edit-btn" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" (click)="toggleEdditing()">
+        <mat-icon>{{editing ? 'clear' : 'edit'}}</mat-icon>
+      </button>
+    <ng-content select="[slot=preview]"></ng-content>
+    </div>
+    <div class="edition-form">
+      <ng-content select="[slot=form]"></ng-content>
+    </div>
+
+</div>

@@ -26,7 +26,6 @@ export class Previewer {
     cloningHtmlcode():void{
         setTimeout(() => {
             this.htmlCopy = this.el.nativeElement.querySelector('.card').outerHTML;
-            console.log('code', this.htmlCopy)
         }, .200);
         
     }   

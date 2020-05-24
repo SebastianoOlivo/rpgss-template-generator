@@ -1,0 +1,23 @@
+<form action="" [formGroup]="legionForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="">
+        <mat-label>Nom du camp</mat-label>
+        <input matInput formControlName="name" placeholder="Ex. les saint">
+    </mat-form-field>
+    <mat-form-field class="">
+        <mat-label>Image de la bannière du camp</mat-label>
+        <input matInput formControlName="image" placeholder="http://">
+    </mat-form-field>
+    <mat-form-field class="">
+        <mat-label>Citation du camp</mat-label>
+        <input matInput formControlName="quote" placeholder="">
+    </mat-form-field>
+    <mat-form-field class="">
+        <mat-label>Résumer du camp</mat-label>
+        <textarea matInput matInput formControlName="summary" placeholder="Ex. les saint"></textarea>
+    </mat-form-field>
+    <mat-form-field class="">
+        <mat-label>hierarchy du camp</mat-label>
+        <input matInput formControlName="hierarchy" placeholder="">
+    </mat-form-field>
+    <button mat-flat-button type="submit" color="primary">Sauver</button>
+</form>

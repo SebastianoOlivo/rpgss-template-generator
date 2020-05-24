@@ -1,31 +1,33 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PrivateModule } from '@private/private.module';
+import { PublicModule } from '@public/public.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EditionComponent } from './components/edition/edition.component';
-import { Header } from './components/header/header.component';
-import { Previewer } from './components/previewer/previewer.component';
 import { FormEdition } from './components/form-edition/form-edition.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { PresentationForm } from './components/presentation-form/presentation-form.component';
+import { Header } from './components/header/header.component';
 import { EditionDataService } from './shared/edition-data.service';
-import { FormatPleinText } from './pipes/format-plain-text.pipe';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditionComponent,
     Header,
-    Previewer,
     FormEdition,
-    PresentationForm,
-    FormatPleinText,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    PublicModule,
+    PrivateModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+
   ],
   providers: [EditionDataService],
   bootstrap: [AppComponent]

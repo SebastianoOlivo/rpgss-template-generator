@@ -1,0 +1,37 @@
+<editable-content>
+
+    <div slot="preview">
+        <div class="card card-camp">
+            <div class="card-banner"
+                [style]="{'background-image':'url(' + backgroundImage() + ')'}">>
+                <h2>
+                    {{legion?.name}}
+                </h2>
+            </div>
+            <article class="card-content">
+                <span class="catchphrase">“{{legion?.quote}}” </span>
+                <section class="content-section camps content-section--fold ">
+                    <h3>Résumé du camp</h3>
+                    {{legion?.summary}}
+
+                </section>
+                <section class="content-section camps content-section--fold  ">
+                    <h3>Hiérarchie : </h3>
+                    <img class="offset" [src]="legion?.hierarchy" alt="">
+
+                </section>
+                <section class="content-section offset">
+                    <h3>Liste des armures</h3>
+                    <h4>Armures d’or</h4>
+                    <div class="cloth-info">
+                        some stuff
+                    </div>
+                </section>
+            </article>
+        </div>
+    </div>
+
+    <div slot="form">
+        <legion-form [legion]="legion" (legionChange)="updateLegion($event)"></legion-form>
+    </div>
+</editable-content>

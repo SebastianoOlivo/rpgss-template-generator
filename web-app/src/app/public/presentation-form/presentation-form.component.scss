@@ -1,3 +1,29 @@
+
+.edition{
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+    .previewer, .edition-form{
+        display: block;
+        overflow: hidden;
+    }
+    .previewer{
+        width: 60%;
+        padding: 50px;
+        background-color: #110a29;
+        @media screen and (min-width: 1300px){
+            width: 50%;
+        }
+    }
+    .edition-form{
+        width: 40%;
+        @media screen and (min-width: 1300px){
+            width: 50%;
+        }
+    }
+}
+
+
 .edition-form{
     background-color: #FFF;
     color:#161020;
